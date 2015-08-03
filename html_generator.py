@@ -77,17 +77,16 @@ def spans(tokens):
         if span[4]:
             for _ in range(span[4]):
                 span_strs.append(u"<br/>")
-            
-    return "\n".join(span_strs)
+    return u"\n".join(span_strs)
 
 def divs(stims):
     """Add div containers to each screen by its id."""
-    return "\t<div id='{0:04d}' class='screen'>\n{1}\n\t</div>".format(
-        stims.sc_ids,stims.screen)
+    return u"\t<div id='{0:04d}' class='screen'>\n{1}\n\t</div>".format(
+        stims.sc_id,stims.screen)
 
 # open the texts as dataframe
 stimuli = pd.read_csv(args.strings, encoding='utf-8',
-    header=None, sep='\t', names=['sc_ids','screen'])
+    header=None, sep='\t', names=['sc_id','screen'])
 
 # apply transformation to stimuli
 stimuli.screen = stimuli.screen.str.replace("\n", "\n ")
@@ -99,8 +98,11 @@ stimuli.screen = stimuli.apply(divs,axis=1)
 all_containers = "\n\n".join(stimuli.screen.values)
 #print(body)
 
+# extract css info
+#css_content = codecs.open(args.css, encoding='utf-8').read()
+
 # assemble html with reference to specified css file
-html_scripts ="""
+html_scripts =u"""
         <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
         <script type="text/javascript">
             function measure_boxes(screen_elem) {
