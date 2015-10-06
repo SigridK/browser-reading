@@ -1,0 +1,1826 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>experiment</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+        <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+        <script type="text/javascript">
+            function measure_boxes(screen_elem) {
+                var timestamp = $.now()
+                var boxes = $(".char",screen_elem).map(function(index, char_elem) {
+                    var bb = char_elem.getBoundingClientRect()
+                    return {text: char_elem.textContent,
+                               id: char_elem.getAttribute("id"),
+                               bottom: bb.bottom,
+                               height: bb.height,
+                               left: bb.left,
+                               right: bb.right,
+                               top: bb.top,
+                               width: bb.width
+                            }
+
+                })
+                var clean_boxes = boxes.get()
+                $.post("http://localhost:5000/", JSON.stringify({boxes:clean_boxes,
+                    timestamp:timestamp,
+                    screen_id:screen_elem.attr("id")}
+                    ))
+
+            }
+            $(document).ready(function() {
+                $(".screen").hide()
+                $(".screen").first().show()
+
+                $(document).keyup(function(key_event) {
+                    // space bar is 32.
+                    if (key_event.which==32) {
+                        var current_visible = $(".screen:visible").first()
+                        current_visible.hide()
+                        current_visible = current_visible.next(".screen").show()
+                        measure_boxes(current_visible)
+                    }
+
+                })
+            }) 
+    
+        </script>
+    </head>
+
+    <body>
+       	<div id='0523_MAI0801' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>T</span>
+				<span id='0000-01' class='middle char'>o</span>
+				<span id='0000-02' class='middle char'>d</span>
+				<span id='0000-03' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>D</span>
+				<span id='0001-01' class='middle char'>e</span>
+				<span id='0001-02' class='middle char'>C</span>
+				<span id='0001-03' class='middle char'>o</span>
+				<span id='0001-04' class='middle char'>o</span>
+				<span id='0001-05' class='last char'>k</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>s</span>
+				<span id='0002-01' class='middle char'>t</span>
+				<span id='0002-02' class='middle char'>r</span>
+				<span id='0002-03' class='middle char'>o</span>
+				<span id='0002-04' class='middle char'>n</span>
+				<span id='0002-05' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>$</span>
+				<span id='0003-01' class='middle char'>4</span>
+				<span id='0003-02' class='middle char'>2</span>
+				<span id='0003-03' class='middle char'>,</span>
+				<span id='0003-04' class='middle char'>0</span>
+				<span id='0003-05' class='middle char'>0</span>
+				<span id='0003-06' class='last char'>8</span>
+			</span>
+	</div>
+
+	<div id='0739_MAI0805' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>T</span>
+				<span id='0000-01' class='middle char'>r</span>
+				<span id='0000-02' class='middle char'>a</span>
+				<span id='0000-03' class='middle char'>n</span>
+				<span id='0000-04' class='middle char'>s</span>
+				<span id='0000-05' class='middle char'>m</span>
+				<span id='0000-06' class='middle char'>i</span>
+				<span id='0000-07' class='middle char'>s</span>
+				<span id='0000-08' class='middle char'>s</span>
+				<span id='0000-09' class='middle char'>i</span>
+				<span id='0000-10' class='middle char'>o</span>
+				<span id='0000-11' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>E</span>
+				<span id='0001-01' class='middle char'>x</span>
+				<span id='0001-02' class='middle char'>p</span>
+				<span id='0001-03' class='middle char'>a</span>
+				<span id='0001-04' class='middle char'>n</span>
+				<span id='0001-05' class='middle char'>s</span>
+				<span id='0001-06' class='middle char'>i</span>
+				<span id='0001-07' class='middle char'>o</span>
+				<span id='0001-08' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>a</span>
+				<span id='0002-01' class='middle char'>n</span>
+				<span id='0002-02' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>S</span>
+				<span id='0003-01' class='middle char'>y</span>
+				<span id='0003-02' class='middle char'>s</span>
+				<span id='0003-03' class='middle char'>t</span>
+				<span id='0003-04' class='middle char'>e</span>
+				<span id='0003-05' class='middle char'>m</span>
+				<span id='0003-06' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>i</span>
+				<span id='0004-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>T</span>
+				<span id='0005-01' class='middle char'>r</span>
+				<span id='0005-02' class='middle char'>a</span>
+				<span id='0005-03' class='middle char'>n</span>
+				<span id='0005-04' class='middle char'>s</span>
+				<span id='0005-05' class='middle char'>i</span>
+				<span id='0005-06' class='middle char'>t</span>
+				<span id='0005-07' class='middle char'>i</span>
+				<span id='0005-08' class='middle char'>o</span>
+				<span id='0005-09' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>C</span>
+				<span id='0006-01' class='middle char'>o</span>
+				<span id='0006-02' class='middle char'>n</span>
+				<span id='0006-03' class='middle char'>f</span>
+				<span id='0006-04' class='middle char'>e</span>
+				<span id='0006-05' class='middle char'>r</span>
+				<span id='0006-06' class='middle char'>e</span>
+				<span id='0006-07' class='middle char'>n</span>
+				<span id='0006-08' class='middle char'>c</span>
+				<span id='0006-09' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>F</span>
+				<span id='0007-01' class='middle char'>e</span>
+				<span id='0007-02' class='middle char'>b</span>
+				<span id='0007-03' class='last char'>.</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>5</span>
+				<span id='0008-01' class='middle char'>-</span>
+				<span id='0008-02' class='middle char'>8</span>
+				<span id='0008-03' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>2</span>
+				<span id='0009-01' class='middle char'>0</span>
+				<span id='0009-02' class='middle char'>0</span>
+				<span id='0009-03' class='middle char'>2</span>
+				<span id='0009-04' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>M</span>
+				<span id='0010-01' class='middle char'>i</span>
+				<span id='0010-02' class='middle char'>a</span>
+				<span id='0010-03' class='middle char'>m</span>
+				<span id='0010-04' class='middle char'>i</span>
+				<span id='0010-05' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='first char'>F</span>
+				<span id='0011-01' class='middle char'>l</span>
+				<span id='0011-02' class='middle char'>o</span>
+				<span id='0011-03' class='middle char'>r</span>
+				<span id='0011-04' class='middle char'>i</span>
+				<span id='0011-05' class='middle char'>d</span>
+				<span id='0011-06' class='last char'>a</span>
+			</span>
+	</div>
+
+	<div id='0114_MAI0813' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>E</span>
+				<span id='0000-01' class='middle char'>l</span>
+				<span id='0000-02' class='middle char'>e</span>
+				<span id='0000-03' class='middle char'>c</span>
+				<span id='0000-04' class='middle char'>t</span>
+				<span id='0000-05' class='middle char'>r</span>
+				<span id='0000-06' class='middle char'>i</span>
+				<span id='0000-07' class='middle char'>c</span>
+				<span id='0000-08' class='middle char'>i</span>
+				<span id='0000-09' class='middle char'>t</span>
+				<span id='0000-10' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>M</span>
+				<span id='0001-01' class='middle char'>a</span>
+				<span id='0001-02' class='middle char'>r</span>
+				<span id='0001-03' class='middle char'>k</span>
+				<span id='0001-04' class='middle char'>e</span>
+				<span id='0001-05' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>D</span>
+				<span id='0002-01' class='middle char'>e</span>
+				<span id='0002-02' class='middle char'>s</span>
+				<span id='0002-03' class='middle char'>i</span>
+				<span id='0002-04' class='middle char'>g</span>
+				<span id='0002-05' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>C</span>
+				<span id='0003-01' class='middle char'>o</span>
+				<span id='0003-02' class='middle char'>n</span>
+				<span id='0003-03' class='middle char'>f</span>
+				<span id='0003-04' class='middle char'>e</span>
+				<span id='0003-05' class='middle char'>r</span>
+				<span id='0003-06' class='middle char'>e</span>
+				<span id='0003-07' class='middle char'>n</span>
+				<span id='0003-08' class='middle char'>c</span>
+				<span id='0003-09' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>M</span>
+				<span id='0004-01' class='middle char'>a</span>
+				<span id='0004-02' class='middle char'>r</span>
+				<span id='0004-03' class='middle char'>c</span>
+				<span id='0004-04' class='last char'>h</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>2</span>
+				<span id='0005-01' class='middle char'>5</span>
+				<span id='0005-02' class='middle char'>-</span>
+				<span id='0005-03' class='middle char'>2</span>
+				<span id='0005-04' class='middle char'>6</span>
+				<span id='0005-05' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>2</span>
+				<span id='0006-01' class='middle char'>0</span>
+				<span id='0006-02' class='middle char'>0</span>
+				<span id='0006-03' class='middle char'>2</span>
+				<span id='0006-04' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>A</span>
+				<span id='0007-01' class='middle char'>t</span>
+				<span id='0007-02' class='middle char'>l</span>
+				<span id='0007-03' class='middle char'>a</span>
+				<span id='0007-04' class='middle char'>n</span>
+				<span id='0007-05' class='middle char'>t</span>
+				<span id='0007-06' class='middle char'>a</span>
+				<span id='0007-07' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>G</span>
+				<span id='0008-01' class='middle char'>e</span>
+				<span id='0008-02' class='middle char'>o</span>
+				<span id='0008-03' class='middle char'>r</span>
+				<span id='0008-04' class='middle char'>g</span>
+				<span id='0008-05' class='middle char'>i</span>
+				<span id='0008-06' class='last char'>a</span>
+			</span>
+	</div>
+
+	<div id='0381_MAI0848' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='single char'>I</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>w</span>
+				<span id='0001-01' class='middle char'>o</span>
+				<span id='0001-02' class='middle char'>u</span>
+				<span id='0001-03' class='middle char'>l</span>
+				<span id='0001-04' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>l</span>
+				<span id='0002-01' class='middle char'>i</span>
+				<span id='0002-02' class='middle char'>k</span>
+				<span id='0002-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>t</span>
+				<span id='0003-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>t</span>
+				<span id='0004-01' class='middle char'>h</span>
+				<span id='0004-02' class='middle char'>a</span>
+				<span id='0004-03' class='middle char'>n</span>
+				<span id='0004-04' class='last char'>k</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>y</span>
+				<span id='0005-01' class='middle char'>o</span>
+				<span id='0005-02' class='last char'>u</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>f</span>
+				<span id='0006-01' class='middle char'>o</span>
+				<span id='0006-02' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>p</span>
+				<span id='0007-01' class='middle char'>e</span>
+				<span id='0007-02' class='middle char'>r</span>
+				<span id='0007-03' class='middle char'>s</span>
+				<span id='0007-04' class='middle char'>o</span>
+				<span id='0007-05' class='middle char'>n</span>
+				<span id='0007-06' class='middle char'>a</span>
+				<span id='0007-07' class='middle char'>l</span>
+				<span id='0007-08' class='middle char'>l</span>
+				<span id='0007-09' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>t</span>
+				<span id='0008-01' class='middle char'>a</span>
+				<span id='0008-02' class='middle char'>k</span>
+				<span id='0008-03' class='middle char'>i</span>
+				<span id='0008-04' class='middle char'>n</span>
+				<span id='0008-05' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>t</span>
+				<span id='0009-01' class='middle char'>h</span>
+				<span id='0009-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>t</span>
+				<span id='0010-01' class='middle char'>i</span>
+				<span id='0010-02' class='middle char'>m</span>
+				<span id='0010-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='first char'>t</span>
+				<span id='0011-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0012-00' class='first char'>c</span>
+				<span id='0012-01' class='middle char'>l</span>
+				<span id='0012-02' class='middle char'>o</span>
+				<span id='0012-03' class='middle char'>s</span>
+				<span id='0012-04' class='middle char'>e</span>
+				<span id='0012-05' class='middle char'>l</span>
+				<span id='0012-06' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0013-00' class='first char'>r</span>
+				<span id='0013-01' class='middle char'>e</span>
+				<span id='0013-02' class='middle char'>v</span>
+				<span id='0013-03' class='middle char'>i</span>
+				<span id='0013-04' class='middle char'>e</span>
+				<span id='0013-05' class='last char'>w</span>
+			</span>
+			<span class='token'>
+				<span id='0014-00' class='first char'>m</span>
+				<span id='0014-01' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0015-00' class='first char'>a</span>
+				<span id='0015-01' class='middle char'>p</span>
+				<span id='0015-02' class='middle char'>p</span>
+				<span id='0015-03' class='middle char'>l</span>
+				<span id='0015-04' class='middle char'>i</span>
+				<span id='0015-05' class='middle char'>c</span>
+				<span id='0015-06' class='middle char'>a</span>
+				<span id='0015-07' class='middle char'>t</span>
+				<span id='0015-08' class='middle char'>i</span>
+				<span id='0015-09' class='middle char'>o</span>
+				<span id='0015-10' class='middle char'>n</span>
+				<span id='0015-11' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0083_MAI0857' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>I</span>
+				<span id='0000-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>y</span>
+				<span id='0001-01' class='middle char'>o</span>
+				<span id='0001-02' class='last char'>u</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>t</span>
+				<span id='0002-01' class='middle char'>h</span>
+				<span id='0002-02' class='middle char'>i</span>
+				<span id='0002-03' class='middle char'>n</span>
+				<span id='0002-04' class='last char'>k</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>o</span>
+				<span id='0003-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>a</span>
+				<span id='0004-01' class='middle char'>n</span>
+				<span id='0004-02' class='middle char'>y</span>
+				<span id='0004-03' class='middle char'>t</span>
+				<span id='0004-04' class='middle char'>h</span>
+				<span id='0004-05' class='middle char'>i</span>
+				<span id='0004-06' class='middle char'>n</span>
+				<span id='0004-07' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>e</span>
+				<span id='0005-01' class='middle char'>l</span>
+				<span id='0005-02' class='middle char'>s</span>
+				<span id='0005-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='single char'>I</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>c</span>
+				<span id='0007-01' class='middle char'>a</span>
+				<span id='0007-02' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>d</span>
+				<span id='0008-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>t</span>
+				<span id='0009-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>s</span>
+				<span id='0010-01' class='middle char'>t</span>
+				<span id='0010-02' class='middle char'>r</span>
+				<span id='0010-03' class='middle char'>e</span>
+				<span id='0010-04' class='middle char'>n</span>
+				<span id='0010-05' class='middle char'>g</span>
+				<span id='0010-06' class='middle char'>t</span>
+				<span id='0010-07' class='middle char'>h</span>
+				<span id='0010-08' class='middle char'>e</span>
+				<span id='0010-09' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='first char'>m</span>
+				<span id='0011-01' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0012-00' class='first char'>o</span>
+				<span id='0012-01' class='middle char'>v</span>
+				<span id='0012-02' class='middle char'>e</span>
+				<span id='0012-03' class='middle char'>r</span>
+				<span id='0012-04' class='middle char'>a</span>
+				<span id='0012-05' class='middle char'>l</span>
+				<span id='0012-06' class='last char'>l</span>
+			</span>
+			<span class='token'>
+				<span id='0013-00' class='first char'>a</span>
+				<span id='0013-01' class='middle char'>p</span>
+				<span id='0013-02' class='middle char'>p</span>
+				<span id='0013-03' class='middle char'>l</span>
+				<span id='0013-04' class='middle char'>i</span>
+				<span id='0013-05' class='middle char'>c</span>
+				<span id='0013-06' class='middle char'>a</span>
+				<span id='0013-07' class='middle char'>t</span>
+				<span id='0013-08' class='middle char'>i</span>
+				<span id='0013-09' class='middle char'>o</span>
+				<span id='0013-10' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0014-00' class='first char'>f</span>
+				<span id='0014-01' class='middle char'>i</span>
+				<span id='0014-02' class='middle char'>l</span>
+				<span id='0014-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0015-00' class='first char'>f</span>
+				<span id='0015-01' class='middle char'>o</span>
+				<span id='0015-02' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0016-00' class='first char'>n</span>
+				<span id='0016-01' class='middle char'>e</span>
+				<span id='0016-02' class='middle char'>x</span>
+				<span id='0016-03' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0017-00' class='first char'>y</span>
+				<span id='0017-01' class='middle char'>e</span>
+				<span id='0017-02' class='middle char'>a</span>
+				<span id='0017-03' class='middle char'>r</span>
+				<span id='0017-04' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0018-00' class='first char'>p</span>
+				<span id='0018-01' class='middle char'>l</span>
+				<span id='0018-02' class='middle char'>e</span>
+				<span id='0018-03' class='middle char'>a</span>
+				<span id='0018-04' class='middle char'>s</span>
+				<span id='0018-05' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0019-00' class='first char'>l</span>
+				<span id='0019-01' class='middle char'>e</span>
+				<span id='0019-02' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0020-00' class='first char'>m</span>
+				<span id='0020-01' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0021-00' class='first char'>k</span>
+				<span id='0021-01' class='middle char'>n</span>
+				<span id='0021-02' class='middle char'>o</span>
+				<span id='0021-03' class='middle char'>w</span>
+				<span id='0021-04' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0929_HDL0207' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>J</span>
+				<span id='0000-01' class='middle char'>a</span>
+				<span id='0000-02' class='middle char'>p</span>
+				<span id='0000-03' class='middle char'>a</span>
+				<span id='0000-04' class='middle char'>n</span>
+				<span id='0000-05' class='middle char'>e</span>
+				<span id='0000-06' class='middle char'>s</span>
+				<span id='0000-07' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>r</span>
+				<span id='0001-01' class='middle char'>e</span>
+				<span id='0001-02' class='middle char'>v</span>
+				<span id='0001-03' class='middle char'>e</span>
+				<span id='0001-04' class='middle char'>r</span>
+				<span id='0001-05' class='middle char'>s</span>
+				<span id='0001-06' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>t</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>c</span>
+				<span id='0002-03' class='last char'>k</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>o</span>
+				<span id='0003-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>p</span>
+				<span id='0004-01' class='middle char'>a</span>
+				<span id='0004-02' class='middle char'>t</span>
+				<span id='0004-03' class='middle char'>e</span>
+				<span id='0004-04' class='middle char'>n</span>
+				<span id='0004-05' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>p</span>
+				<span id='0005-01' class='middle char'>r</span>
+				<span id='0005-02' class='middle char'>o</span>
+				<span id='0005-03' class='middle char'>t</span>
+				<span id='0005-04' class='middle char'>e</span>
+				<span id='0005-05' class='middle char'>c</span>
+				<span id='0005-06' class='middle char'>t</span>
+				<span id='0005-07' class='middle char'>i</span>
+				<span id='0005-08' class='middle char'>o</span>
+				<span id='0005-09' class='last char'>n</span>
+			</span>
+	</div>
+
+	<div id='0543_HDL0212' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>F</span>
+				<span id='0000-01' class='middle char'>r</span>
+				<span id='0000-02' class='middle char'>i</span>
+				<span id='0000-03' class='middle char'>d</span>
+				<span id='0000-04' class='middle char'>a</span>
+				<span id='0000-05' class='middle char'>y</span>
+				<span id='0000-06' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>O</span>
+				<span id='0001-01' class='middle char'>c</span>
+				<span id='0001-02' class='middle char'>t</span>
+				<span id='0001-03' class='middle char'>o</span>
+				<span id='0001-04' class='middle char'>b</span>
+				<span id='0001-05' class='middle char'>e</span>
+				<span id='0001-06' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>2</span>
+				<span id='0002-01' class='middle char'>0</span>
+				<span id='0002-02' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>1</span>
+				<span id='0003-01' class='middle char'>9</span>
+				<span id='0003-02' class='middle char'>8</span>
+				<span id='0003-03' class='last char'>9</span>
+			</span>
+	</div>
+
+	<div id='0587_HDL0213' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>D</span>
+				<span id='0000-01' class='middle char'>i</span>
+				<span id='0000-02' class='middle char'>s</span>
+				<span id='0000-03' class='middle char'>c</span>
+				<span id='0000-04' class='middle char'>i</span>
+				<span id='0000-05' class='middle char'>p</span>
+				<span id='0000-06' class='middle char'>l</span>
+				<span id='0000-07' class='middle char'>i</span>
+				<span id='0000-08' class='middle char'>n</span>
+				<span id='0000-09' class='middle char'>a</span>
+				<span id='0000-10' class='middle char'>r</span>
+				<span id='0000-11' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>p</span>
+				<span id='0001-01' class='middle char'>r</span>
+				<span id='0001-02' class='middle char'>o</span>
+				<span id='0001-03' class='middle char'>c</span>
+				<span id='0001-04' class='middle char'>e</span>
+				<span id='0001-05' class='middle char'>e</span>
+				<span id='0001-06' class='middle char'>d</span>
+				<span id='0001-07' class='middle char'>i</span>
+				<span id='0001-08' class='middle char'>n</span>
+				<span id='0001-09' class='middle char'>g</span>
+				<span id='0001-10' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>a</span>
+				<span id='0002-01' class='middle char'>g</span>
+				<span id='0002-02' class='middle char'>a</span>
+				<span id='0002-03' class='middle char'>i</span>
+				<span id='0002-04' class='middle char'>n</span>
+				<span id='0002-05' class='middle char'>s</span>
+				<span id='0002-06' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>l</span>
+				<span id='0003-01' class='middle char'>a</span>
+				<span id='0003-02' class='middle char'>w</span>
+				<span id='0003-03' class='middle char'>y</span>
+				<span id='0003-04' class='middle char'>e</span>
+				<span id='0003-05' class='middle char'>r</span>
+				<span id='0003-06' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>o</span>
+				<span id='0004-01' class='middle char'>p</span>
+				<span id='0004-02' class='middle char'>e</span>
+				<span id='0004-03' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>t</span>
+				<span id='0005-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>p</span>
+				<span id='0006-01' class='middle char'>u</span>
+				<span id='0006-02' class='middle char'>b</span>
+				<span id='0006-03' class='middle char'>l</span>
+				<span id='0006-04' class='middle char'>i</span>
+				<span id='0006-05' class='last char'>c</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>i</span>
+				<span id='0007-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>I</span>
+				<span id='0008-01' class='middle char'>l</span>
+				<span id='0008-02' class='middle char'>l</span>
+				<span id='0008-03' class='middle char'>i</span>
+				<span id='0008-04' class='middle char'>n</span>
+				<span id='0008-05' class='middle char'>o</span>
+				<span id='0008-06' class='middle char'>i</span>
+				<span id='0008-07' class='middle char'>s</span>
+				<span id='0008-08' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0779_HDL0215' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>O</span>
+				<span id='0000-01' class='middle char'>i</span>
+				<span id='0000-02' class='last char'>l</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>s</span>
+				<span id='0001-01' class='middle char'>p</span>
+				<span id='0001-02' class='middle char'>i</span>
+				<span id='0001-03' class='middle char'>l</span>
+				<span id='0001-04' class='last char'>l</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>c</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>s</span>
+				<span id='0002-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>s</span>
+				<span id='0003-01' class='middle char'>h</span>
+				<span id='0003-02' class='middle char'>o</span>
+				<span id='0003-03' class='middle char'>w</span>
+				<span id='0003-04' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>l</span>
+				<span id='0004-01' class='middle char'>i</span>
+				<span id='0004-02' class='middle char'>a</span>
+				<span id='0004-03' class='middle char'>b</span>
+				<span id='0004-04' class='middle char'>i</span>
+				<span id='0004-05' class='middle char'>l</span>
+				<span id='0004-06' class='middle char'>i</span>
+				<span id='0004-07' class='middle char'>t</span>
+				<span id='0004-08' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>f</span>
+				<span id='0005-01' class='middle char'>u</span>
+				<span id='0005-02' class='middle char'>n</span>
+				<span id='0005-03' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>f</span>
+				<span id='0006-01' class='middle char'>l</span>
+				<span id='0006-02' class='middle char'>a</span>
+				<span id='0006-03' class='middle char'>w</span>
+				<span id='0006-04' class='last char'>s</span>
+			</span>
+	</div>
+
+	<div id='0748_HDL0218' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>L</span>
+				<span id='0000-01' class='middle char'>a</span>
+				<span id='0000-02' class='last char'>w</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>f</span>
+				<span id='0001-01' class='middle char'>i</span>
+				<span id='0001-02' class='middle char'>r</span>
+				<span id='0001-03' class='last char'>m</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>m</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>n</span>
+				<span id='0002-03' class='middle char'>a</span>
+				<span id='0002-04' class='middle char'>g</span>
+				<span id='0002-05' class='middle char'>e</span>
+				<span id='0002-06' class='middle char'>m</span>
+				<span id='0002-07' class='middle char'>e</span>
+				<span id='0002-08' class='middle char'>n</span>
+				<span id='0002-09' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>c</span>
+				<span id='0003-01' class='middle char'>a</span>
+				<span id='0003-02' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>b</span>
+				<span id='0004-01' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>q</span>
+				<span id='0005-01' class='middle char'>u</span>
+				<span id='0005-02' class='middle char'>i</span>
+				<span id='0005-03' class='middle char'>t</span>
+				<span id='0005-04' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>r</span>
+				<span id='0006-01' class='middle char'>e</span>
+				<span id='0006-02' class='middle char'>w</span>
+				<span id='0006-03' class='middle char'>a</span>
+				<span id='0006-04' class='middle char'>r</span>
+				<span id='0006-05' class='middle char'>d</span>
+				<span id='0006-06' class='middle char'>i</span>
+				<span id='0006-07' class='middle char'>n</span>
+				<span id='0006-08' class='last char'>g</span>
+			</span>
+	</div>
+
+	<div id='0352_TWI0095' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>J</span>
+				<span id='0000-01' class='middle char'>u</span>
+				<span id='0000-02' class='middle char'>s</span>
+				<span id='0000-03' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>w</span>
+				<span id='0001-01' class='middle char'>a</span>
+				<span id='0001-02' class='middle char'>t</span>
+				<span id='0001-03' class='middle char'>c</span>
+				<span id='0001-04' class='middle char'>h</span>
+				<span id='0001-05' class='middle char'>e</span>
+				<span id='0001-06' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>r</span>
+				<span id='0002-01' class='middle char'>e</span>
+				<span id='0002-02' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>d</span>
+				<span id='0003-01' class='middle char'>w</span>
+				<span id='0003-02' class='middle char'>a</span>
+				<span id='0003-03' class='middle char'>r</span>
+				<span id='0003-04' class='middle char'>f</span>
+				<span id='0003-05' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0949_TWI0099' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>N</span>
+				<span id='0000-01' class='middle char'>e</span>
+				<span id='0000-02' class='last char'>w</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>b</span>
+				<span id='0001-01' class='middle char'>l</span>
+				<span id='0001-02' class='middle char'>o</span>
+				<span id='0001-03' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>p</span>
+				<span id='0002-01' class='middle char'>o</span>
+				<span id='0002-02' class='middle char'>s</span>
+				<span id='0002-03' class='middle char'>t</span>
+				<span id='0002-04' class='last char'>:</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>B</span>
+				<span id='0003-01' class='middle char'>o</span>
+				<span id='0003-02' class='middle char'>n</span>
+				<span id='0003-03' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>l</span>
+				<span id='0004-01' class='middle char'>a</span>
+				<span id='0004-02' class='middle char'>s</span>
+				<span id='0004-03' class='middle char'>h</span>
+				<span id='0004-04' class='middle char'>e</span>
+				<span id='0004-05' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>o</span>
+				<span id='0005-01' class='middle char'>u</span>
+				<span id='0005-02' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>[</span>
+				<span id='0006-01' class='middle char'>u</span>
+				<span id='0006-02' class='middle char'>r</span>
+				<span id='0006-03' class='middle char'>l</span>
+				<span id='0006-04' class='middle char'>n</span>
+				<span id='0006-05' class='middle char'>a</span>
+				<span id='0006-06' class='middle char'>m</span>
+				<span id='0006-07' class='middle char'>e</span>
+				<span id='0006-08' class='last char'>]</span>
+			</span>
+	</div>
+
+	<div id='0731_TWI0100' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>c</span>
+				<span id='0000-01' class='middle char'>u</span>
+				<span id='0000-02' class='middle char'>r</span>
+				<span id='0000-03' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>s</span>
+				<span id='0001-01' class='middle char'>c</span>
+				<span id='0001-02' class='middle char'>h</span>
+				<span id='0001-03' class='middle char'>i</span>
+				<span id='0001-04' class='middle char'>l</span>
+				<span id='0001-05' class='middle char'>l</span>
+				<span id='0001-06' class='middle char'>i</span>
+				<span id='0001-07' class='middle char'>n</span>
+				<span id='0001-08' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>r</span>
+				<span id='0002-01' class='middle char'>e</span>
+				<span id='0002-02' class='middle char'>t</span>
+				<span id='0002-03' class='middle char'>i</span>
+				<span id='0002-04' class='middle char'>r</span>
+				<span id='0002-05' class='middle char'>e</span>
+				<span id='0002-06' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>a</span>
+				<span id='0003-01' class='middle char'>f</span>
+				<span id='0003-02' class='middle char'>t</span>
+				<span id='0003-03' class='middle char'>e</span>
+				<span id='0003-04' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>2</span>
+				<span id='0004-01' class='last char'>3</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>y</span>
+				<span id='0005-01' class='middle char'>e</span>
+				<span id='0005-02' class='middle char'>a</span>
+				<span id='0005-03' class='middle char'>r</span>
+				<span id='0005-04' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>i</span>
+				<span id='0006-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>b</span>
+				<span id='0007-01' class='middle char'>a</span>
+				<span id='0007-02' class='middle char'>s</span>
+				<span id='0007-03' class='middle char'>e</span>
+				<span id='0007-04' class='middle char'>b</span>
+				<span id='0007-05' class='middle char'>a</span>
+				<span id='0007-06' class='middle char'>l</span>
+				<span id='0007-07' class='last char'>l</span>
+			</span>
+	</div>
+
+	<div id='0257_TWI0101' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>[</span>
+				<span id='0000-01' class='middle char'>u</span>
+				<span id='0000-02' class='middle char'>s</span>
+				<span id='0000-03' class='middle char'>e</span>
+				<span id='0000-04' class='middle char'>r</span>
+				<span id='0000-05' class='middle char'>n</span>
+				<span id='0000-06' class='middle char'>a</span>
+				<span id='0000-07' class='middle char'>m</span>
+				<span id='0000-08' class='middle char'>e</span>
+				<span id='0000-09' class='middle char'>]</span>
+				<span id='0000-10' class='middle char'>-</span>
+				<span id='0000-11' class='middle char'>s</span>
+				<span id='0000-12' class='middle char'>o</span>
+				<span id='0000-13' class='middle char'>m</span>
+				<span id='0000-14' class='middle char'>e</span>
+				<span id='0000-15' class='middle char'>o</span>
+				<span id='0000-16' class='middle char'>n</span>
+				<span id='0000-17' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>c</span>
+				<span id='0001-01' class='middle char'>o</span>
+				<span id='0001-02' class='middle char'>u</span>
+				<span id='0001-03' class='middle char'>l</span>
+				<span id='0001-04' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>m</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>k</span>
+				<span id='0002-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='single char'>a</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>k</span>
+				<span id='0004-01' class='middle char'>i</span>
+				<span id='0004-02' class='middle char'>l</span>
+				<span id='0004-03' class='middle char'>l</span>
+				<span id='0004-04' class='middle char'>i</span>
+				<span id='0004-05' class='middle char'>n</span>
+				<span id='0004-06' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>o</span>
+				<span id='0005-01' class='middle char'>u</span>
+				<span id='0005-02' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>o</span>
+				<span id='0006-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>L</span>
+				<span id='0007-01' class='middle char'>l</span>
+				<span id='0007-02' class='middle char'>o</span>
+				<span id='0007-03' class='middle char'>y</span>
+				<span id='0007-04' class='middle char'>d</span>
+				<span id='0007-05' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>s</span>
+				<span id='0008-01' class='middle char'>h</span>
+				<span id='0008-02' class='middle char'>a</span>
+				<span id='0008-03' class='middle char'>r</span>
+				<span id='0008-04' class='middle char'>e</span>
+				<span id='0008-05' class='middle char'>s</span>
+				<span id='0008-06' class='last char'>!</span>
+			</span>
+	</div>
+
+	<div id='0843_TWI0104' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>D</span>
+				<span id='0000-01' class='last char'>M</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>m</span>
+				<span id='0001-01' class='middle char'>e</span>
+				<span id='0001-02' class='last char'>;</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>n</span>
+				<span id='0002-01' class='middle char'>e</span>
+				<span id='0002-02' class='middle char'>e</span>
+				<span id='0002-03' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>t</span>
+				<span id='0003-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>p</span>
+				<span id='0004-01' class='middle char'>i</span>
+				<span id='0004-02' class='middle char'>c</span>
+				<span id='0004-03' class='last char'>k</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>y</span>
+				<span id='0005-01' class='middle char'>o</span>
+				<span id='0005-02' class='middle char'>u</span>
+				<span id='0005-03' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>b</span>
+				<span id='0006-01' class='middle char'>r</span>
+				<span id='0006-02' class='middle char'>a</span>
+				<span id='0006-03' class='middle char'>i</span>
+				<span id='0006-04' class='middle char'>n</span>
+				<span id='0006-05' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0661_WBL0574' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>T</span>
+				<span id='0000-01' class='middle char'>h</span>
+				<span id='0000-02' class='middle char'>e</span>
+				<span id='0000-03' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>a</span>
+				<span id='0001-01' class='middle char'>c</span>
+				<span id='0001-02' class='middle char'>t</span>
+				<span id='0001-03' class='middle char'>i</span>
+				<span id='0001-04' class='middle char'>v</span>
+				<span id='0001-05' class='middle char'>e</span>
+				<span id='0001-06' class='middle char'>l</span>
+				<span id='0001-07' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>e</span>
+				<span id='0002-01' class='middle char'>x</span>
+				<span id='0002-02' class='middle char'>c</span>
+				<span id='0002-03' class='middle char'>l</span>
+				<span id='0002-04' class='middle char'>u</span>
+				<span id='0002-05' class='middle char'>d</span>
+				<span id='0002-06' class='middle char'>e</span>
+				<span id='0002-07' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>S</span>
+				<span id='0003-01' class='middle char'>t</span>
+				<span id='0003-02' class='middle char'>a</span>
+				<span id='0003-03' class='middle char'>t</span>
+				<span id='0003-04' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>D</span>
+				<span id='0004-01' class='middle char'>e</span>
+				<span id='0004-02' class='middle char'>p</span>
+				<span id='0004-03' class='middle char'>a</span>
+				<span id='0004-04' class='middle char'>r</span>
+				<span id='0004-05' class='middle char'>t</span>
+				<span id='0004-06' class='middle char'>m</span>
+				<span id='0004-07' class='middle char'>e</span>
+				<span id='0004-08' class='middle char'>n</span>
+				<span id='0004-09' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>I</span>
+				<span id='0005-01' class='middle char'>r</span>
+				<span id='0005-02' class='middle char'>a</span>
+				<span id='0005-03' class='last char'>q</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>h</span>
+				<span id='0006-01' class='middle char'>a</span>
+				<span id='0006-02' class='middle char'>n</span>
+				<span id='0006-03' class='middle char'>d</span>
+				<span id='0006-04' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>l</span>
+				<span id='0007-01' class='middle char'>i</span>
+				<span id='0007-02' class='middle char'>k</span>
+				<span id='0007-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>T</span>
+				<span id='0008-01' class='middle char'>o</span>
+				<span id='0008-02' class='last char'>m</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>W</span>
+				<span id='0009-01' class='middle char'>a</span>
+				<span id='0009-02' class='middle char'>r</span>
+				<span id='0009-03' class='middle char'>r</span>
+				<span id='0009-04' class='middle char'>i</span>
+				<span id='0009-05' class='middle char'>c</span>
+				<span id='0009-06' class='middle char'>k</span>
+				<span id='0009-07' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0108_WBL0579' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='single char'>I</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>h</span>
+				<span id='0001-01' class='middle char'>a</span>
+				<span id='0001-02' class='middle char'>v</span>
+				<span id='0001-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>l</span>
+				<span id='0002-01' class='middle char'>o</span>
+				<span id='0002-02' class='middle char'>n</span>
+				<span id='0002-03' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>b</span>
+				<span id='0003-01' class='middle char'>e</span>
+				<span id='0003-02' class='middle char'>e</span>
+				<span id='0003-03' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='single char'>a</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>t</span>
+				<span id='0005-01' class='middle char'>r</span>
+				<span id='0005-02' class='middle char'>e</span>
+				<span id='0005-03' class='middle char'>n</span>
+				<span id='0005-04' class='middle char'>c</span>
+				<span id='0005-05' class='middle char'>h</span>
+				<span id='0005-06' class='middle char'>a</span>
+				<span id='0005-07' class='middle char'>n</span>
+				<span id='0005-08' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>c</span>
+				<span id='0006-01' class='middle char'>r</span>
+				<span id='0006-02' class='middle char'>i</span>
+				<span id='0006-03' class='middle char'>t</span>
+				<span id='0006-04' class='middle char'>i</span>
+				<span id='0006-05' class='last char'>c</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>o</span>
+				<span id='0007-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>t</span>
+				<span id='0008-01' class='middle char'>h</span>
+				<span id='0008-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>S</span>
+				<span id='0009-01' class='middle char'>a</span>
+				<span id='0009-02' class='middle char'>d</span>
+				<span id='0009-03' class='middle char'>r</span>
+				<span id='0009-04' class='middle char'>i</span>
+				<span id='0009-05' class='middle char'>s</span>
+				<span id='0009-06' class='middle char'>t</span>
+				<span id='0009-07' class='middle char'>s</span>
+				<span id='0009-08' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0740_WBL0580' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>B</span>
+				<span id='0000-01' class='middle char'>u</span>
+				<span id='0000-02' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>t</span>
+				<span id='0001-01' class='middle char'>h</span>
+				<span id='0001-02' class='middle char'>e</span>
+				<span id='0001-03' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>h</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>v</span>
+				<span id='0002-03' class='middle char'>e</span>
+				<span id='0002-04' class='middle char'>n</span>
+				<span id='0002-05' class='middle char'>'</span>
+				<span id='0002-06' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>b</span>
+				<span id='0003-01' class='middle char'>e</span>
+				<span id='0003-02' class='middle char'>e</span>
+				<span id='0003-03' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>u</span>
+				<span id='0004-01' class='last char'>p</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>t</span>
+				<span id='0005-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>a</span>
+				<span id='0006-01' class='middle char'>n</span>
+				<span id='0006-02' class='middle char'>y</span>
+				<span id='0006-03' class='middle char'>t</span>
+				<span id='0006-04' class='middle char'>h</span>
+				<span id='0006-05' class='middle char'>i</span>
+				<span id='0006-06' class='middle char'>n</span>
+				<span id='0006-07' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>e</span>
+				<span id='0007-01' class='middle char'>x</span>
+				<span id='0007-02' class='middle char'>t</span>
+				<span id='0007-03' class='middle char'>r</span>
+				<span id='0007-04' class='middle char'>a</span>
+				<span id='0007-05' class='middle char'>o</span>
+				<span id='0007-06' class='middle char'>r</span>
+				<span id='0007-07' class='middle char'>d</span>
+				<span id='0007-08' class='middle char'>i</span>
+				<span id='0007-09' class='middle char'>n</span>
+				<span id='0007-10' class='middle char'>a</span>
+				<span id='0007-11' class='middle char'>r</span>
+				<span id='0007-12' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>a</span>
+				<span id='0008-01' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>f</span>
+				<span id='0009-01' class='middle char'>a</span>
+				<span id='0009-02' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>a</span>
+				<span id='0010-01' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='single char'>I</span>
+			</span>
+			<span class='token'>
+				<span id='0012-00' class='first char'>c</span>
+				<span id='0012-01' class='middle char'>a</span>
+				<span id='0012-02' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0013-00' class='first char'>s</span>
+				<span id='0013-01' class='middle char'>e</span>
+				<span id='0013-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0014-00' class='first char'>i</span>
+				<span id='0014-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0015-00' class='first char'>r</span>
+				<span id='0015-01' class='middle char'>e</span>
+				<span id='0015-02' class='middle char'>c</span>
+				<span id='0015-03' class='middle char'>e</span>
+				<span id='0015-04' class='middle char'>n</span>
+				<span id='0015-05' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0016-00' class='first char'>w</span>
+				<span id='0016-01' class='middle char'>e</span>
+				<span id='0016-02' class='middle char'>e</span>
+				<span id='0016-03' class='middle char'>k</span>
+				<span id='0016-04' class='middle char'>s</span>
+				<span id='0016-05' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0045_WBL0596' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>F</span>
+				<span id='0000-01' class='middle char'>r</span>
+				<span id='0000-02' class='middle char'>o</span>
+				<span id='0000-03' class='last char'>m</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>F</span>
+				<span id='0001-01' class='middle char'>r</span>
+				<span id='0001-02' class='middle char'>i</span>
+				<span id='0001-03' class='middle char'>d</span>
+				<span id='0001-04' class='middle char'>a</span>
+				<span id='0001-05' class='middle char'>y</span>
+				<span id='0001-06' class='middle char'>'</span>
+				<span id='0001-07' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>D</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>i</span>
+				<span id='0002-03' class='middle char'>l</span>
+				<span id='0002-04' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>S</span>
+				<span id='0003-01' class='middle char'>t</span>
+				<span id='0003-02' class='middle char'>a</span>
+				<span id='0003-03' class='last char'>r</span>
+			</span>
+	</div>
+
+	<div id='0349_WBL0598' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>F</span>
+				<span id='0000-01' class='middle char'>r</span>
+				<span id='0000-02' class='middle char'>i</span>
+				<span id='0000-03' class='middle char'>d</span>
+				<span id='0000-04' class='middle char'>a</span>
+				<span id='0000-05' class='middle char'>y</span>
+				<span id='0000-06' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>J</span>
+				<span id='0001-01' class='middle char'>u</span>
+				<span id='0001-02' class='middle char'>n</span>
+				<span id='0001-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>0</span>
+				<span id='0002-01' class='middle char'>4</span>
+				<span id='0002-02' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>2</span>
+				<span id='0003-01' class='middle char'>0</span>
+				<span id='0003-02' class='middle char'>0</span>
+				<span id='0003-03' class='last char'>4</span>
+			</span>
+	</div>
+
+	<div id='0108_WSJ0688' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>C</span>
+				<span id='0000-01' class='middle char'>N</span>
+				<span id='0000-02' class='middle char'>N</span>
+				<span id='0000-03' class='middle char'>'</span>
+				<span id='0000-04' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>v</span>
+				<span id='0001-01' class='middle char'>i</span>
+				<span id='0001-02' class='middle char'>e</span>
+				<span id='0001-03' class='middle char'>w</span>
+				<span id='0001-04' class='middle char'>e</span>
+				<span id='0001-05' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>h</span>
+				<span id='0002-01' class='middle char'>a</span>
+				<span id='0002-02' class='middle char'>b</span>
+				<span id='0002-03' class='middle char'>i</span>
+				<span id='0002-04' class='middle char'>t</span>
+				<span id='0002-05' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>h</span>
+				<span id='0003-01' class='middle char'>a</span>
+				<span id='0003-02' class='middle char'>v</span>
+				<span id='0003-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>b</span>
+				<span id='0004-01' class='middle char'>e</span>
+				<span id='0004-02' class='middle char'>e</span>
+				<span id='0004-03' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>m</span>
+				<span id='0005-01' class='middle char'>o</span>
+				<span id='0005-02' class='middle char'>l</span>
+				<span id='0005-03' class='middle char'>d</span>
+				<span id='0005-04' class='middle char'>e</span>
+				<span id='0005-05' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>b</span>
+				<span id='0006-01' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>i</span>
+				<span id='0007-01' class='middle char'>t</span>
+				<span id='0007-02' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>f</span>
+				<span id='0008-01' class='middle char'>o</span>
+				<span id='0008-02' class='middle char'>r</span>
+				<span id='0008-03' class='middle char'>m</span>
+				<span id='0008-04' class='middle char'>a</span>
+				<span id='0008-05' class='middle char'>t</span>
+				<span id='0008-06' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0929_WSJ0696' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>T</span>
+				<span id='0000-01' class='middle char'>h</span>
+				<span id='0000-02' class='middle char'>e</span>
+				<span id='0000-03' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>t</span>
+				<span id='0001-01' class='middle char'>h</span>
+				<span id='0001-02' class='middle char'>e</span>
+				<span id='0001-03' class='middle char'>r</span>
+				<span id='0001-04' class='middle char'>e</span>
+				<span id='0001-05' class='middle char'>'</span>
+				<span id='0001-06' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>"</span>
+				<span id='0002-01' class='middle char'>T</span>
+				<span id='0002-02' class='middle char'>h</span>
+				<span id='0002-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>W</span>
+				<span id='0003-01' class='middle char'>o</span>
+				<span id='0003-02' class='middle char'>r</span>
+				<span id='0003-03' class='middle char'>l</span>
+				<span id='0003-04' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>T</span>
+				<span id='0004-01' class='middle char'>o</span>
+				<span id='0004-02' class='middle char'>d</span>
+				<span id='0004-03' class='middle char'>a</span>
+				<span id='0004-04' class='middle char'>y</span>
+				<span id='0004-05' class='last char'>,</span>
+			</span>
+				<span id='0004-06' class='last char'>"</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>t</span>
+				<span id='0005-01' class='middle char'>h</span>
+				<span id='0005-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>p</span>
+				<span id='0006-01' class='middle char'>r</span>
+				<span id='0006-02' class='middle char'>i</span>
+				<span id='0006-03' class='middle char'>m</span>
+				<span id='0006-04' class='middle char'>e</span>
+				<span id='0006-05' class='middle char'>-</span>
+				<span id='0006-06' class='middle char'>t</span>
+				<span id='0006-07' class='middle char'>i</span>
+				<span id='0006-08' class='middle char'>m</span>
+				<span id='0006-09' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>n</span>
+				<span id='0007-01' class='middle char'>e</span>
+				<span id='0007-02' class='middle char'>w</span>
+				<span id='0007-03' class='middle char'>s</span>
+				<span id='0007-04' class='middle char'>c</span>
+				<span id='0007-05' class='middle char'>a</span>
+				<span id='0007-06' class='middle char'>s</span>
+				<span id='0007-07' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>f</span>
+				<span id='0008-01' class='middle char'>e</span>
+				<span id='0008-02' class='middle char'>a</span>
+				<span id='0008-03' class='middle char'>t</span>
+				<span id='0008-04' class='middle char'>u</span>
+				<span id='0008-05' class='middle char'>r</span>
+				<span id='0008-06' class='middle char'>i</span>
+				<span id='0008-07' class='middle char'>n</span>
+				<span id='0008-08' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>M</span>
+				<span id='0009-01' class='middle char'>r</span>
+				<span id='0009-02' class='last char'>.</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>S</span>
+				<span id='0010-01' class='middle char'>h</span>
+				<span id='0010-02' class='middle char'>a</span>
+				<span id='0010-03' class='last char'>w</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='first char'>a</span>
+				<span id='0011-01' class='middle char'>n</span>
+				<span id='0011-02' class='last char'>d</span>
+			</span>
+			<span class='token'>
+				<span id='0012-00' class='first char'>M</span>
+				<span id='0012-01' class='middle char'>s</span>
+				<span id='0012-02' class='last char'>.</span>
+			</span>
+			<span class='token'>
+				<span id='0013-00' class='first char'>C</span>
+				<span id='0013-01' class='middle char'>r</span>
+				<span id='0013-02' class='middle char'>i</span>
+				<span id='0013-03' class='middle char'>e</span>
+				<span id='0013-04' class='middle char'>r</span>
+				<span id='0013-05' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0447_WSJ0710' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>S</span>
+				<span id='0000-01' class='middle char'>a</span>
+				<span id='0000-02' class='middle char'>y</span>
+				<span id='0000-03' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>M</span>
+				<span id='0001-01' class='middle char'>r</span>
+				<span id='0001-02' class='last char'>.</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>M</span>
+				<span id='0002-01' class='middle char'>o</span>
+				<span id='0002-02' class='middle char'>s</span>
+				<span id='0002-03' class='middle char'>e</span>
+				<span id='0002-04' class='middle char'>t</span>
+				<span id='0002-05' class='middle char'>t</span>
+				<span id='0002-06' class='middle char'>i</span>
+				<span id='0002-07' class='middle char'>g</span>
+				<span id='0002-08' class='last char'>:</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>"</span>
+				<span id='0003-01' class='middle char'>C</span>
+				<span id='0003-02' class='middle char'>N</span>
+				<span id='0003-03' class='last char'>N</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>i</span>
+				<span id='0004-01' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>m</span>
+				<span id='0005-01' class='last char'>y</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>w</span>
+				<span id='0006-01' class='middle char'>i</span>
+				<span id='0006-02' class='middle char'>r</span>
+				<span id='0006-03' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>s</span>
+				<span id='0007-01' class='middle char'>e</span>
+				<span id='0007-02' class='middle char'>r</span>
+				<span id='0007-03' class='middle char'>v</span>
+				<span id='0007-04' class='middle char'>i</span>
+				<span id='0007-05' class='middle char'>c</span>
+				<span id='0007-06' class='middle char'>e</span>
+				<span id='0007-07' class='last char'>;</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>t</span>
+				<span id='0008-01' class='middle char'>h</span>
+				<span id='0008-02' class='middle char'>e</span>
+				<span id='0008-03' class='middle char'>y</span>
+				<span id='0008-04' class='middle char'>'</span>
+				<span id='0008-05' class='middle char'>r</span>
+				<span id='0008-06' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>o</span>
+				<span id='0009-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>t</span>
+				<span id='0010-01' class='middle char'>o</span>
+				<span id='0010-02' class='last char'>p</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='first char'>o</span>
+				<span id='0011-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0012-00' class='first char'>e</span>
+				<span id='0012-01' class='middle char'>v</span>
+				<span id='0012-02' class='middle char'>e</span>
+				<span id='0012-03' class='middle char'>r</span>
+				<span id='0012-04' class='middle char'>y</span>
+				<span id='0012-05' class='middle char'>t</span>
+				<span id='0012-06' class='middle char'>h</span>
+				<span id='0012-07' class='middle char'>i</span>
+				<span id='0012-08' class='middle char'>n</span>
+				<span id='0012-09' class='middle char'>g</span>
+				<span id='0012-10' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0862_WSJ0732' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>C</span>
+				<span id='0000-01' class='middle char'>a</span>
+				<span id='0000-02' class='middle char'>l</span>
+				<span id='0000-03' class='last char'>l</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>i</span>
+				<span id='0001-01' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>t</span>
+				<span id='0002-01' class='middle char'>h</span>
+				<span id='0002-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>"</span>
+				<span id='0003-01' class='middle char'>w</span>
+				<span id='0003-02' class='middle char'>e</span>
+				<span id='0003-03' class='middle char'>'</span>
+				<span id='0003-04' class='middle char'>r</span>
+				<span id='0003-05' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>t</span>
+				<span id='0004-01' class='middle char'>o</span>
+				<span id='0004-02' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='first char'>b</span>
+				<span id='0005-01' class='middle char'>r</span>
+				<span id='0005-02' class='middle char'>o</span>
+				<span id='0005-03' class='middle char'>k</span>
+				<span id='0005-04' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>t</span>
+				<span id='0006-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>f</span>
+				<span id='0007-01' class='middle char'>i</span>
+				<span id='0007-02' class='middle char'>g</span>
+				<span id='0007-03' class='middle char'>h</span>
+				<span id='0007-04' class='middle char'>t</span>
+				<span id='0007-05' class='last char'>"</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>d</span>
+				<span id='0008-01' class='middle char'>e</span>
+				<span id='0008-02' class='middle char'>f</span>
+				<span id='0008-03' class='middle char'>e</span>
+				<span id='0008-04' class='middle char'>n</span>
+				<span id='0008-05' class='middle char'>s</span>
+				<span id='0008-06' class='middle char'>e</span>
+				<span id='0008-07' class='last char'>.</span>
+			</span>
+	</div>
+
+	<div id='0041_WSJ0747' class='screen'>
+			<span class='token'>
+				<span id='0000-00' class='first char'>W</span>
+				<span id='0000-01' class='middle char'>e</span>
+				<span id='0000-02' class='middle char'>'</span>
+				<span id='0000-03' class='middle char'>r</span>
+				<span id='0000-04' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0001-00' class='first char'>a</span>
+				<span id='0001-01' class='middle char'>s</span>
+				<span id='0001-02' class='middle char'>k</span>
+				<span id='0001-03' class='middle char'>i</span>
+				<span id='0001-04' class='middle char'>n</span>
+				<span id='0001-05' class='last char'>g</span>
+			</span>
+			<span class='token'>
+				<span id='0002-00' class='first char'>t</span>
+				<span id='0002-01' class='middle char'>h</span>
+				<span id='0002-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0003-00' class='first char'>c</span>
+				<span id='0003-01' class='middle char'>o</span>
+				<span id='0003-02' class='middle char'>u</span>
+				<span id='0003-03' class='middle char'>r</span>
+				<span id='0003-04' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0004-00' class='first char'>f</span>
+				<span id='0004-01' class='middle char'>o</span>
+				<span id='0004-02' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0005-00' class='single char'>a</span>
+			</span>
+			<span class='token'>
+				<span id='0006-00' class='first char'>n</span>
+				<span id='0006-01' class='middle char'>u</span>
+				<span id='0006-02' class='middle char'>m</span>
+				<span id='0006-03' class='middle char'>b</span>
+				<span id='0006-04' class='middle char'>e</span>
+				<span id='0006-05' class='last char'>r</span>
+			</span>
+			<span class='token'>
+				<span id='0007-00' class='first char'>o</span>
+				<span id='0007-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0008-00' class='first char'>t</span>
+				<span id='0008-01' class='middle char'>h</span>
+				<span id='0008-02' class='middle char'>i</span>
+				<span id='0008-03' class='middle char'>n</span>
+				<span id='0008-04' class='middle char'>g</span>
+				<span id='0008-05' class='last char'>s</span>
+			</span>
+			<span class='token'>
+				<span id='0009-00' class='first char'>h</span>
+				<span id='0009-01' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0010-00' class='first char'>c</span>
+				<span id='0010-01' class='middle char'>a</span>
+				<span id='0010-02' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0011-00' class='first char'>g</span>
+				<span id='0011-01' class='middle char'>r</span>
+				<span id='0011-02' class='middle char'>a</span>
+				<span id='0011-03' class='middle char'>n</span>
+				<span id='0011-04' class='last char'>t</span>
+			</span>
+			<span class='token'>
+				<span id='0012-00' class='first char'>i</span>
+				<span id='0012-01' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0013-00' class='first char'>a</span>
+				<span id='0013-01' class='middle char'>d</span>
+				<span id='0013-02' class='middle char'>d</span>
+				<span id='0013-03' class='middle char'>i</span>
+				<span id='0013-04' class='middle char'>t</span>
+				<span id='0013-05' class='middle char'>i</span>
+				<span id='0013-06' class='middle char'>o</span>
+				<span id='0013-07' class='last char'>n</span>
+			</span>
+			<span class='token'>
+				<span id='0014-00' class='first char'>t</span>
+				<span id='0014-01' class='last char'>o</span>
+			</span>
+			<span class='token'>
+				<span id='0015-00' class='first char'>t</span>
+				<span id='0015-01' class='middle char'>h</span>
+				<span id='0015-02' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0016-00' class='first char'>t</span>
+				<span id='0016-01' class='middle char'>h</span>
+				<span id='0016-02' class='middle char'>r</span>
+				<span id='0016-03' class='middle char'>i</span>
+				<span id='0016-04' class='middle char'>l</span>
+				<span id='0016-05' class='last char'>l</span>
+			</span>
+			<span class='token'>
+				<span id='0017-00' class='first char'>o</span>
+				<span id='0017-01' class='last char'>f</span>
+			</span>
+			<span class='token'>
+				<span id='0018-00' class='first char'>v</span>
+				<span id='0018-01' class='middle char'>i</span>
+				<span id='0018-02' class='middle char'>c</span>
+				<span id='0018-03' class='middle char'>t</span>
+				<span id='0018-04' class='middle char'>o</span>
+				<span id='0018-05' class='middle char'>r</span>
+				<span id='0018-06' class='middle char'>y</span>
+				<span id='0018-07' class='last char'>,</span>
+			</span>
+			<span class='token'>
+				<span id='0019-00' class='first char'>h</span>
+				<span id='0019-01' class='last char'>e</span>
+			</span>
+			<span class='token'>
+				<span id='0020-00' class='first char'>s</span>
+				<span id='0020-01' class='middle char'>a</span>
+				<span id='0020-02' class='middle char'>y</span>
+				<span id='0020-03' class='middle char'>s</span>
+				<span id='0020-04' class='last char'>.</span>
+			</span>
+	</div>
+    </body>
+</html>

@@ -81,7 +81,7 @@ def spans(tokens):
 
 def divs(stims):
     """Add div containers to each screen by its id."""
-    return u"\t<div id='{0:04d}' class='screen'>\n{1}\n\t</div>".format(
+    return u"\t<div id='{0}' class='screen'>\n{1}\n\t</div>".format(
         stims.sc_id,stims.screen)
 
 # open the texts as dataframe
