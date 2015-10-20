@@ -17,7 +17,7 @@
 0059_MAI0333	This Friday-Michael goes for a visit at St. Francis, which may be his new school (so far, so good) .
 0059_TWI0032	No broadband and mobile phones banned
 0059_WBL0129	You CAN Do It.
-0059_WSJ0150	The studies {on closing the unit}  couldn't be completed until now, he said.
+0059_WSJ0150	The studies (on closing the unit) couldn't be completed until now, he said.
 0059_WSJ0215	They expected a new barrage of demands that Japan do something quickly to reduce its trade surplus with the U.S..
 0062_WBL0228	no one was charged for forced marriage, only the beating.
 0062_WSJ0292	Going into the fourth quarter, natural gas prices are anywhere from 8% to 17% lower than a year earlier.
@@ -42,12 +42,12 @@
 0114_WSJ0453	The shutdowns will idle about 3,000 Canadian assembly workers and about 2,500 workers in Ohio.
 0123_MAI0698	Please forward a copy of the J.M. Huber Corporation Guaranty to my attention.
 0160_HDL0093	Closed end bond funds
-0160_TWI0076	"RT [username]: ""Look for Oracle to do a little pruning before it blows any dough on Sun's hardware business,"" [urlname]"
+0160_TWI0076	"RT [username]: "Look for Oracle to do a little pruning before it blows any dough on Sun's hardware business,"" [urlname]"
 0168_HDL0005	Braumeisters Ltd. tests a beer brewed with oat bran, rather than rice or corn.
 0168_MAI0067	I was thinking Kenneally's at around 5.
 0168_TWI0005	Take note This Life and Red Dwarf, reunions don't have to be shit.
 0169_TWI0081	Just told Lloyds to go do one their new lending is 3.5% over base rate on well secured loans!
-0169_WBL0267	"Another generation of heavy metal has taken over, and  - sorry  - it ain't just about strippers and dope.
+0169_WBL0267	Another generation of heavy metal has taken over, and  - sorry  - it ain't just about strippers and dope.
 0867_WBL0268	Okay, it's partly about strippers and dope.
 0922_WBL0279	You know, nature hates a void. :)
 0955_WBL0285	They were death metal brainwashed fans, literally fulfilling the death metal paradigm, er ... morality.
@@ -75,7 +75,7 @@
 0168_WSJ0058	Many have raised cash levels, which act as a buffer against steep market declines.
 0722_WSJ0067	Also, persistent redemptions would force some fund managers to dump stocks to raise cash.
 0068_WSJ0068	But a strong level of investor withdrawals is much more unlikely this time around, fund managers said.
-0948_WSJ0101	She added, If they all were bullish, I'd really be upset."""
+0948_WSJ0101	She added, If they all were bullish, I'd really be upset.
 0169_WSJ0322	However, the agreement was canceled in June 1984.
 0176_HDL0042	The irs may taketh what the labor department giveth.
 0176_TWI0027	Oh geez, another kiddie eddie murphy movie.
@@ -120,8 +120,8 @@
 0385_MAI0153	She is very conscientious about what she signs, and who initials what.
 0385_TWI0017	First half of new Red Dwarf: Poor.
 0385_WBL0067	But Posada's nearly 80 years old, and the Venezuelan people will ensure that's a vain hope.
-0385_WSJ0108	"The projects are big.
-0055_WSJ0136	We usually operate in that conservative manner."""
+0385_WSJ0108	The projects are big.
+0055_WSJ0136	We usually operate in that conservative manner.
 0419_WSJ0658	Both magazines are expected to announce their ad rates and circulation levels for 1990 within a month.
 0424_TWI0049	Fuck the mets and their $100 tickets.
 0424_WSJ0194	When Attack hit the shelves in 1987, P&G's share of the Japanese market fell to about 8% from more than 20%.
