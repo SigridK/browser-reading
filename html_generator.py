@@ -61,23 +61,23 @@ def spans(tokens):
 
     span_strs = []
     for span in spans:
-        char_str = u"\t\t\t\t<span id='{0:04d}-{1:02d}' class='{2} char'>{3}</span>".format(*span)
+        char_str = u"<span id='{0:04d}-{1:02d}' class='char {2}'>{3}</span>".format(*span)
         if span[2] == "first":
-            token_start = u"\t\t\t<span class='token'>\n"
+            token_start = u"<span class='token'>"
             span_strs.append(token_start+char_str)
         elif span[2] == "last":
-            token_end = u"\n\t\t\t</span>"
+            token_end = u"</span>"
             span_strs.append(char_str+token_end)
         elif span[2] == "single":
-            token_start = u"\t\t\t<span class='token'>\n"
-            token_end = u"\n\t\t\t</span>"
+            token_start = u"<span class='token'>"
+            token_end = u"</span>"
             span_strs.append(token_start+char_str+token_end)
         else:
             span_strs.append(char_str)
         if span[4]:
             for _ in range(span[4]):
                 span_strs.append(u"<br/>")
-    return u"\n".join(span_strs)
+    return u"".join(span_strs)
 
 def divs(stims):
     """Add div containers to each screen by its id."""
@@ -94,8 +94,11 @@ stimuli.screen = stimuli.screen.str.split(" ")
 stimuli.screen = stimuli.screen.apply(spans)
 stimuli.screen = stimuli.apply(divs,axis=1)
 
+x_screen = "\n<div id='x_screen' class='screen'><span id='x' class='x'>+</span></div>\n"
+
+
 # extract the stimuli as one string
-all_containers = "\n\n".join(stimuli.screen.values)
+all_containers = x_screen+x_screen.join(stimuli.screen.values)
 #print(body)
 
 # extract css info

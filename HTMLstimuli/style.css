@@ -1,44 +1,42 @@
-        #stimulus {
-                width: 1280px;
-                border: 0px solid grey;
-    		font-family: Verdana;
-        }
         body {
+            width: 1080px;
             background-color: #C0C0C0;
-    		font-size: 20px;
+    		font-size: 14px;
     		margin-top: 300px;
-	  		margin-left: 150px;
-	  		margin-right: 150px;
+	  		margin-left: 100px;
+	  		margin-right: 100px;
+            font-family: Verdana;
         }
     	
     	span {
     		border: 0px solid red;
 			display: inline-block;
         }
-
-		span.char {
-			padding-bottom: 0.4em;
-    		padding-top: 0.4em;
-		}		
+		
 		/* this ensures sane line breaks */
 		span.token {
 		border:  0px solid green;
 		}
+
+        span.char {
+            padding-bottom: 0.4em;
+            padding-top: 0.4em;
+        }   
     	
     	.first {
-    		padding-left: 0.3em;
-    		padding-right: 0.02em;
+    		padding-left: 0.25em;
+    		padding-right: 0.0em;
     	}
     	
     	.last {
-    		padding-right: 0.3em;
+    		padding-right: 0.25em;
     	}
     	
     	.middle {
-    		padding-right: 0.02em;
+    		padding-right: 0.0em;
     	}
     	
     	.single {
-    		padding-left: 0.3em;
-    		padding-right: 0.3em;
+    		padding-left: 0.25em;
+    		padding-right: 0.25em;
     	}
