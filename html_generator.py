@@ -124,7 +124,7 @@ html_scripts =u"""
 
                 })
                 var clean_boxes = boxes.get()
-                $.post("http://localhost:5000/", JSON.stringify({boxes:clean_boxes,
+                $.post("http://localhost:5000/space", JSON.stringify({boxes:clean_boxes,
                     timestamp:timestamp,
                     screen_id:screen_elem.attr("id")}
                     ))
@@ -141,6 +141,15 @@ html_scripts =u"""
                         current_visible.hide()
                         current_visible = current_visible.next(".screen").show()
                         measure_boxes(current_visible)
+                    }
+
+                    // press q for quitting
+                    if (key_event.which==49) {
+                        $.post("http://localhost:5000/shutdown", "shutdown")
+                        //var current_visible = $(".screen:visible").first()
+                        //current_visible.hide()
+                        //current_visible = current_visible.next(".screen").show()
+                        //measure_boxes(current_visible)
                     }
 
                 })
