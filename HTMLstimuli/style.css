@@ -12,6 +12,12 @@
     		border: 0px solid red;
 			display: inline-block;
         }
+
+        span.x{
+        margin-top: -200px;
+        margin-left: 535px;
+        margin-right: 535px;
+        }
 		
 		/* this ensures sane line breaks */
 		span.token {
