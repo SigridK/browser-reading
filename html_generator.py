@@ -108,6 +108,7 @@ all_containers = x_screen+x_screen.join(stimuli.screen.values)
 html_scripts =u"""
         <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
         <script type="text/javascript">
+
             function measure_boxes(screen_elem) {
                 var timestamp = $.now()
                 var boxes = $(".char",screen_elem).map(function(index, char_elem) {
@@ -135,16 +136,16 @@ html_scripts =u"""
                 $(".screen").first().show()
 
                 $(document).keyup(function(key_event) {
-                    // space bar is 32.
-                    if (key_event.which==32) {
+                    // 49 is 1, 50 is 2, 51 is 3
+                    if (key_event.which==49||key_event.which==50||key_event.which==51||key_event.which==32) {
                         var current_visible = $(".screen:visible").first()
                         current_visible.hide()
                         current_visible = current_visible.next(".screen").show()
                         measure_boxes(current_visible)
                     }
 
-                    // press q for quitting
-                    if (key_event.which==49) {
+                    // press 0 for quitting
+                    if (key_event.which==48) {
                         $.post("http://localhost:5000/shutdown", "shutdown")
                         //var current_visible = $(".screen:visible").first()
                         //current_visible.hide()
