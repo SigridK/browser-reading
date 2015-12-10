@@ -8,7 +8,7 @@ import json
 
 
 timestampfname = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
-
+dataout = []
 
 parser = argparse.ArgumentParser(
     description="""Listens to javascript output and saves it to a file""")
@@ -19,17 +19,14 @@ args = parser.parse_args()
 
 app = Flask(__name__)
 
-fileout = codecs.open('Pagerecordings/'+timestampfname+args.outfilename, 'w', 'utf-8')
+#fileout = codecs.open('Pagerecordings/'+timestampfname+args.outfilename, 'w', 'utf-8')
 
 @app.route('/space', methods=['POST'])
 def hello_world():
 	#print(str(request.form))
 	#fileout.write(str(request.form))
-    with open('Pagerecordings/'+timestampfname+args.outfilename, 'a') as outfile:
-        json.dump(request.form, outfile)
-	#return str(request.form)
-
-	return 'Hello World!'
+    dataout.append(request.form)
+    return 'Hello World!'
 
 
 def shutdown_server():
@@ -42,9 +39,11 @@ def shutdown_server():
 @app.route('/shutdown', methods=['POST'])
 def shutdown():
 	#print("received q")
+    #not saved to file before your shut down server
+    with open('Pagerecordings/'+timestampfname+args.outfilename, 'w') as outfile:
+        json.dump(dataout, outfile)
     shutdown_server()
     return 'Server shutting down...'
 
 app.run(debug=True)
-fileout.close()
 
