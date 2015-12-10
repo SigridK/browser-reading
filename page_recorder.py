@@ -4,6 +4,8 @@ import codecs
 import argparse
 import time
 import datetime
+import json
+
 
 timestampfname = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
 
@@ -22,7 +24,9 @@ fileout = codecs.open('Pagerecordings/'+timestampfname+args.outfilename, 'w', 'u
 @app.route('/space', methods=['POST'])
 def hello_world():
 	#print(str(request.form))
-	fileout.write(str(request.form))
+	#fileout.write(str(request.form))
+    with open('Pagerecordings/'+timestampfname+args.outfilename, 'a') as outfile:
+        json.dump(request.form, outfile)
 	#return str(request.form)
 
 	return 'Hello World!'
