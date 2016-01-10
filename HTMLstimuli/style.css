@@ -1,0 +1,48 @@
+        body {
+            width: 1080px;
+            background-color: #C0C0C0;
+    		font-size: 13px;
+    		margin-top: 300px;
+	  		margin-left: 100px;
+	  		margin-right: 100px;
+            font-family: Verdana;
+        }
+    	
+    	span {
+    		border: 0px solid red;
+			display: inline-block;
+        }
+
+        span.x{
+        margin-top: -200px;
+        margin-left: 535px;
+        margin-right: 535px;
+        }
+		
+		/* this ensures sane line breaks */
+		span.token {
+		border:  0px solid green;
+		}
+
+        span.char {
+            padding-bottom: 0.4em;
+            padding-top: 0.4em;
+        }   
+    	
+    	.first {
+    		padding-left: 0.25em;
+    		padding-right: 0.0em;
+    	}
+    	
+    	.last {
+    		padding-right: 0.25em;
+    	}
+    	
+    	.middle {
+    		padding-right: 0.0em;
+    	}
+    	
+    	.single {
+    		padding-left: 0.25em;
+    		padding-right: 0.25em;
+    	}
